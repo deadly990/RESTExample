@@ -1,7 +1,6 @@
 package rest.dowjones;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.util.Calendar;
 
 public class Stock {

@@ -1,14 +1,10 @@
 package rest.dowjones;
 
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.Reader;
-import java.io.StringReader;
 import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -19,9 +15,17 @@ import org.apache.commons.csv.CSVRecord;
 import org.apache.commons.validator.routines.CalendarValidator;
 import org.apache.commons.validator.routines.IntegerValidator;
 
-public class StockFactory {
+/**
+ * Ideally this class would only create the Stock objects from some other
+ * Representation of the data. And would persist through those functions
+ * However, as this is an example application this application does
+ * not handle delete, and does not persist create or update
+ * @author JJ
+ *
+ */
+public class StockRepository {
 	public  ArrayList<Stock> stocks;
-	public StockFactory() {
+	public StockRepository() {
 		try {
 			stocks = LoadStocksFromFlatFile();
 		} catch (Exception e) {
@@ -32,7 +36,7 @@ public class StockFactory {
 		ArrayList<Stock> stocks = new ArrayList<Stock>();
 		try {
 			
-			InputStream in = StockFactory.class.getResourceAsStream("dow_jones_index.data");
+			InputStream in = StockRepository.class.getResourceAsStream("dow_jones_index.data");
 			CSVParser parser = new CSVParser(new InputStreamReader(in), CSVFormat.DEFAULT);
 			List<CSVRecord> list = parser.getRecords();
 			IntegerValidator iv = IntegerValidator.getInstance();
@@ -63,8 +67,22 @@ public class StockFactory {
 		if (id >= stocks.size()) {
 			throw new IndexOutOfBoundsException();
 		} else {
-			System.out.println((int) id);
 			return stocks.get((int) id);
+		}
+	}
+	public boolean DeleteStock(long id) {
+		return false;		
+	}
+	public Stock CreateStock(Stock stock) {
+		stocks.add(stock);
+		return stock;
+	}
+	public Stock UpdateStock(long id, Stock newStock) {
+		if (id >= stocks.size()) {
+			throw new IndexOutOfBoundsException();
+		} else {
+		 stocks.set((int) id, newStock);
+		 return newStock;
 		}
 	}
 }
