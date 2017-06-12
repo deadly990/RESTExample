@@ -4,13 +4,16 @@ import java.math.BigDecimal;
 import java.util.Calendar;
 
 public class Stock {
-	private final int quarter;
-	private final String stock;
-	private final Calendar date;
-	private final BigDecimal open;
-	private final BigDecimal high;
-	private final BigDecimal low;
-	private final BigDecimal close;
+	private int quarter;
+	private String stock;
+	private Calendar date;
+	private BigDecimal open;
+	private BigDecimal high;
+	private BigDecimal low;
+	private BigDecimal close;
+	public Stock() {
+		
+	}
 	public Stock(int quarter, String stock, Calendar date, BigDecimal open, BigDecimal high, BigDecimal low,
 			BigDecimal close) {
 		super();
@@ -44,5 +47,25 @@ public class Stock {
 		return close;
 	}
 	
-	
+	public void setQuarter(int quarter) {
+		this.quarter = quarter;
+	}
+	public void setStock(String stock) {
+		this.stock = stock;
+	}
+	public void setDate(Calendar date) {
+		this.date = date;
+	}
+	public void setOpen(BigDecimal open) {
+		this.open = open;
+	}
+	public void setHigh(BigDecimal high) {
+		this.high = high;
+	}
+	public void setLow(BigDecimal low) {
+		this.low = low;
+	}
+	public void setClose(BigDecimal close) {
+		this.close = close;
+	}
 }

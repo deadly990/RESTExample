@@ -24,6 +24,7 @@ import org.apache.commons.validator.routines.IntegerValidator;
  *
  */
 public class StockRepository {
+	//An array backed list is used because we need fast random access
 	public  ArrayList<Stock> stocks;
 	public StockRepository() {
 		try {

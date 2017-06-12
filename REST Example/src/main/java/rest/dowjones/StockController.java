@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import static org.springframework.web.bind.annotation.RequestMethod.*;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+
 @RestController
 @RequestMapping("/stocks")
 public class StockController {
@@ -17,19 +20,20 @@ public class StockController {
 		stockRepository = new StockRepository();
 	}
 	@RequestMapping(value = "{id}", method = GET)
-    public Stock getOne(@PathVariable("id") long id) {
-        return stockRepository.GetStock(id);
+    public ResponseEntity<Stock> getOne(@PathVariable("id") long id) {
+        return new ResponseEntity<Stock>(stockRepository.GetStock(id), HttpStatus.OK);
     }
     @RequestMapping(method = POST)
     public Stock create(@RequestBody Stock stock) {
         return stockRepository.CreateStock(stock);
     }
     @RequestMapping(value = "{id}", method = DELETE)
-    public void delete(@PathVariable("id") long id) {
+    public ResponseEntity<String> delete(@PathVariable("id") long id) {
         stockRepository.DeleteStock(id);
+        return new ResponseEntity<String>(HttpStatus.OK);
     }
     @RequestMapping(value = "{id}", method = PUT)
-    public Stock update(@PathVariable long id, @RequestBody Stock stock) {
-        return stockRepository.UpdateStock(id, stock);
+    public ResponseEntity<Stock> update(@PathVariable long id, @RequestBody Stock stock) {
+        return new ResponseEntity<Stock>(stockRepository.UpdateStock(id, stock), HttpStatus.OK);
     }
 }
