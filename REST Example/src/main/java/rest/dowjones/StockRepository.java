@@ -86,4 +86,7 @@ public class StockRepository {
 		 return newStock;
 		}
 	}
+	public List<Stock> All() {
+		return stocks;
+	}
 }
