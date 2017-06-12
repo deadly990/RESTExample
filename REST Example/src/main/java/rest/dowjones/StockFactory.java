@@ -1,4 +1,4 @@
-package test.dowjones;
+package rest.dowjones;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;

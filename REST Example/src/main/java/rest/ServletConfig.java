@@ -1,4 +1,4 @@
-package test;
+package rest;
 
 import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomizer;
 import org.springframework.context.annotation.Bean;

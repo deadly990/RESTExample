@@ -1,4 +1,4 @@
-package test.dowjones;
+package rest.dowjones;
 
 import java.util.concurrent.atomic.AtomicLong;
 

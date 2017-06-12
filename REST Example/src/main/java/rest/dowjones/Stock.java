@@ -1,4 +1,4 @@
-package test.dowjones;
+package rest.dowjones;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
