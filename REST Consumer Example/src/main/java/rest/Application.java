@@ -9,7 +9,7 @@ import org.springframework.web.client.RestTemplate;
 import rest.dowjones.Stock;
 
 public class Application {
-	//Change this to whatever address you have locally.
+	//Change this to whatever address you have locally if running both the producer example and the consumer example.
 	//garnerj990.zapto.org will not be available
 	public final static String URI = "http://garnerj990.zapto.org:8012/stocks";
 	public final static String PARAMURI = URI + "/{id}";
